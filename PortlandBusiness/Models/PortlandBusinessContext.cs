@@ -9,19 +9,26 @@ namespace PortlandBusiness.Models
       {
       }
 
-    public DbSet<Business> Businesses { get; set; }
+    public DbSet<Shop> Shops { get; set; }
+    public DbSet<Restaurant> Restaurants { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-      builder.Entity<Business>()
+      builder.Entity<Shop>()
         .HasData(
-          new Business { BusinessId = 1, Name = "Powells Books", Type = "Retail", Description = "Large Bookstore"},
-          new Business { BusinessId = 2, Name = "Ground Kontrol", Type = "Bar", Description = "Downtown Arcade Bar"},
-          new Business { BusinessId = 3, Name = "Laurelhurst Market", Type = "Restaurant", Description = "Restaurant and Deli providing fine meats"},
-          new Business { BusinessId = 4, Name = "Soro Soro", Type = "Cafe", Description = "Korean desserts and coffee drinks"},
-          new Business { BusinessId = 5, Name = "Mississippi Studios", Type = "Venue", Description = "Small live music venue"},
-          new Business { BusinessId = 6, Name = "Breakside Brewery", Type = "Brewery", Description = "Delicious local Portland brewery"},
-          new Business { BusinessId = 7, Name = "Miyamoto Sushi", Type = "Restaurant", Description = "Best Sushi in town"}
+          new Shop { ShopId = 1, Name = "Powells Books", Description = "Large Bookstore"},
+          new Shop { ShopId = 2, Name = "Tender Loving Empire", Description = "Crafts and Records"},
+          new Shop { ShopId = 3, Name = "Music Millenium", Description = "Portland's best record store"},
+          new Shop { ShopId = 4, Name = "Floating World", Description = "Artsy Comic book shop"}
+        );
+
+        builder.Entity<Restaurant>()
+        .HasData(
+          new Restaurant { RestaurantId = 1, Name = "Ground Kontrol", Type = "Bar", Description = "Downtown Arcade Bar"},
+          new Restaurant { RestaurantId = 2, Name = "Laurelhurst Market", Type = "Steakhouse", Description = "Restaurant and Deli providing fine meats"},
+          new Restaurant { RestaurantId = 3, Name = "Soro Soro", Type = "Dessert", Description = "Korean desserts and coffee drinks"},
+          new Restaurant { RestaurantId = 4, Name = "Breakside Brewery", Type = "Brewery", Description = "Delicious local Portland brewery"},
+          new Restaurant { RestaurantId = 5, Name = "Miyamoto Sushi", Type = "Restaurant", Description = "Best Sushi in town"}
         );
     }
   }
