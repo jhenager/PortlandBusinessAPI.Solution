@@ -15,13 +15,14 @@ _This API is designed to catal_
 * Install [.NET version 3.1 SDK v2.2+](https://dotnet.microsoft.com/download/dotnet-core/2.2)
 * Install [Visual Studio Code](https://code.visualstudio.com/)
 * Install [MySql Workbench](https://www.mysql.com/products/workbench/)
+* Install [Postman](https://www.postman.com/)
 
 ## **SETUP**
 
 
 copy this url to clone this project to your local system:
 ```html
-https://github.com/jhenager/DrSneuss.Solution.git
+https://github.com/jhenager/PortlandBusiness.Solution.git
 ```
 
 <br>
@@ -32,7 +33,7 @@ Once copied, select "Clone Repository" from within VSCode & paste the copied lin
 
 With the project open to the root directory, navigate to the production directory with the following command in your terminal.
 ```js 
-cd DrSneuss
+cd PortlandBusiness
 ```
 
 Then, install the necessary packages with the following command
@@ -48,40 +49,13 @@ dotnet run
 <br>
 Next we will need to setup our MySql database for the application to work.
 <br>
-One method is to directly import the 'james_henager.sql' file included in the repo to MySQL workbench.
+First, you will need to update the username and password in the appsettings.json file to match your local username and password. Replace the word "root" with your username, and the word "epicodus" with your password. Be sure to leave the "u" and "p" in there as they stand for username and password respectively.
 <br>
-The other option is to open MySql Workbench and select "Create a new Sql Tab for Executing Queries" at the very top left of the page. Then paste this information onto the page:
-<br>
+Because the project already has migrations and seeded data, all you will need to do is update the database.
 
 ```
-CREATE DATABASE `james_henager` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
-USE DATABASE `james_henager`
-CREATE TABLE `Engineers` (
-  `EngineerId` int(11) NOT NULL AUTO_INCREMENT,
-  `EngineerName` longtext,
-  PRIMARY KEY (`EngineerId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-CREATE TABLE `MachineEngineer` (
-  `MachineEngineerId` int(11) NOT NULL AUTO_INCREMENT,
-  `MachineId` int(11) NOT NULL,
-  `EngineerId` int(11) NOT NULL,
-  PRIMARY KEY (`MachineEngineerId`),
-  KEY `IX_MachineEngineer_EngineerId` (`EngineerId`),
-  KEY `IX_MachineEngineer_MachineId` (`MachineId`),
-  CONSTRAINT `FK_MachineEngineer_Engineers_EngineerId` FOREIGN KEY (`EngineerId`) REFERENCES `engineers` (`EngineerId`) ON DELETE CASCADE,
-  CONSTRAINT `FK_MachineEngineer_Machines_MachineId` FOREIGN KEY (`MachineId`) REFERENCES `machines` (`MachineId`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-CREATE TABLE `Machines` (
-  `MachineId` int(11) NOT NULL AUTO_INCREMENT,
-  `MachineName` longtext,
-  `Date` datetime(6) NOT NULL DEFAULT '0001-01-01 00:00:00.000000',
-  `MachineError` longtext,
-  PRIMARY KEY (`MachineId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+dotnet ef database update
 ```
-#### **Then, you need to update your username and password in the appsettings.json file.**
-
-_by default these are set to user:root and an empty password. if you are unsure, refer to the settings for your MySqlWorkbench._
 
 
 <br>
@@ -124,7 +98,7 @@ git add .gitignore
 ```js
 git commit -m "protect data"
 ```
-
+## **Using Postman to query the database**
 
 ## **QUESTIONS AND CONCERNS**
 
