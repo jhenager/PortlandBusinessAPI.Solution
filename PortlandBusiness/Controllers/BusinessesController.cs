@@ -31,5 +31,11 @@ namespace PortlandBusiness.Controllers
       _db.SaveChanges();
     }
 
+    // GET api/businesses/{id}
+    [HttpGet("{id}")]
+    public ActionResult<Business> Get(int id)
+    {
+      return _db.Businesses.FirstOrDefault(entry => entry.BusinessId == id);
+    }
   }
 }
