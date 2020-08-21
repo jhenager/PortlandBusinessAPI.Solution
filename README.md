@@ -100,6 +100,72 @@ git commit -m "protect data"
 ```
 ## **Using Postman to query the database**
 
+First we are going to start a localhost server in the PortlandBusiness project folder. In the command line enter:
+```
+dotnet watch run
+```
+
+Once the project has built, Open Postman and Click on the plus sign in the middle of the page (or the plus sign that says "New" in the corner).
+<br>
+
+#### **GET Request**
+To get all of either the Restaurants or Shops in this API and view them enter "http://localhost5000/api/restaurants" or "http://localhost5000/api/shops" respectively into the search bar with "GET" selected on the dropdown. Results will look like:
+```
+[
+  {
+    "restaurantId": 1,
+    "name": "Ground Kontrol",
+    "type": "Bar",
+    "description": "Downtown Arcade Bar"
+  },
+  {
+    "restaurantId": 2,
+    "name": "Laurelhurst Market",
+    "type": "Steakhouse",
+    "description": "Restaurant and Deli providing fine meats"
+  },
+  {
+    "restaurantId": 3,
+    "name": "Soro Soro",
+    "type": "Dessert",
+    "description": "Korean desserts and coffee drinks"
+  },
+  ```
+  #### **GET ID Request**
+To get one particular Restaurant or Shop in this API and view them enter "http://localhost5000/api/restaurants/1" or "http://localhost5000/api/shops/1" respectively into the search bar with "GET" selected on the dropdown. The "1" in the url can be replaced with any other number to retrieve the object with that ID. Click Send, results will look like:
+```
+  {
+    "restaurantId": 1,
+    "name": "Ground Kontrol",
+    "type": "Bar",
+    "description": "Downtown Arcade Bar"
+  },
+  ```
+  #### **Post Request**
+To add an entry to either the Restaurants or Shops in this API enter "http://localhost5000/api/restaurants" or "http://localhost5000/api/shops" respectively into the search bar with "Post" selected on the dropdown. Before clicking send, click on the tab marked body, the click on the radio button that saws raw. Paste the following into the body, replace the values with the values you wish and click send.
+```
+{
+  "restaurantId": 0,
+  "name": "string",
+  "type": "string",
+  "description": "string"
+}
+```
+
+#### **Put Request**
+To edit an entry in either Restaurants or Shops in this API enter "http://localhost5000/api/restaurants/1" or "http://localhost5000/api/shops/1" respectively into the search bar with "Put" selected on the dropdown. Replace the "1" with the id of the entry you would like to edit. Before clicking send, click on the tab marked body, the click on the radio button that saws raw. Paste the following into the body, replace the values with the values you wish and click send.
+```
+{
+  "restaurantId": 0,
+  "name": "string",
+  "type": "string",
+  "description": "string"
+}
+```
+
+#### **Delete Request**
+To add an entry to either the Restaurants or Shops in this API enter "http://localhost5000/api/restaurants/1" or "http://localhost5000/api/shops/1" respectively into the search bar with "Delete" selected on the dropdown.  Replace the "1" with the id of the entry you would like to delete. Click send to delete the entry.
+
 ## **QUESTIONS AND CONCERNS**
 
 _Questions, comments and concerns can be directed to James Henager (jameschenager@gmail.com)_
