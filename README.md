@@ -6,7 +6,7 @@
 
 </p>
 
-_This API is designed to catal_
+_This API is designed to collect and display all of Portland, Oregon's finest restaurants and shops. It can be utilized with a front-end application such as .NET MVC, or queried independently._
 
 
 ## **REQUIREMENTS**
@@ -165,6 +165,16 @@ To edit an entry in either Restaurants or Shops in this API enter "http://localh
 
 #### **Delete Request**
 To add an entry to either the Restaurants or Shops in this API enter "http://localhost5000/api/restaurants/1" or "http://localhost5000/api/shops/1" respectively into the search bar with "Delete" selected on the dropdown.  Replace the "1" with the id of the entry you would like to delete. Click send to delete the entry.
+<br>
+
+## **Viewing Swagger Documentation**
+To view all of the API's endpoint documentation with swagger, first make sure a live server is running. If it isn't, navigate into the PortlandBusiness project folder in the command line and enter:
+```
+dotnet watch run
+```
+Then in your web browser, navigate to "http://localhost5000/swagger"
+<br>
+Click on each tab and experiment with the "try it out" button to see how the different endpoints function.
 
 ## **QUESTIONS AND CONCERNS**
 
